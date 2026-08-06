@@ -893,7 +893,7 @@ function proteinSafe(){
     : ['🍗 Pollo hervido o al vapor, sin piel', '🐟 Pescado blanco al vapor', '🥚 Huevo cocido (sin freír)'];
 }
 function dairySafe(){
-  return state.lactosa ? [] : ['🥄 Yogur natural sin azúcar (con cultivos vivos)'];
+  return state.lactosa ? ['🥄 Yogur natural sin azúcar (con cultivos vivos)'] : [];
 }
 function dairyAvoid(){
   return ['🥛 Leche entera', '🧀 Quesos maduros', '🍨 Helados y postres cremosos'].concat(state.lactosa ? ['🚫 Cualquier lácteo con lactosa'] : []);
@@ -904,8 +904,7 @@ function buildLists(){
     '🍚 Agua de arroz, arroz blanco bien cocido',
     '🍌 Plátano maduro',
     '🍎 Manzana pelada, rallada o al horno (sin cáscara)',
-    '🍞 Pan tostado o galletas de agua, sin mantequilla',
-    '🥕 Zanahoria y papa cocidas, en puré o al vapor',
+    '🍞 Pan tostado (sin mantequilla) o galletas de agua',
     '🍲 Caldo colado (pollo o verduras), sin grasa',
     '🍵 Té suave (manzanilla, jengibre), sin azúcar en exceso',
     ...proteinSafe(),
@@ -915,7 +914,7 @@ function buildLists(){
     '🚫 Frituras y comida grasosa en general',
     '🌶 Comida picante o muy condimentada',
     '☕ Café, alcohol y bebidas con cafeína',
-    '🥤 Bebidas gaseosas y jugos muy azucarados',
+    '🥤 Bebidas gaseosas, besidas isotónicas y jugos muy azucarados',
     '🥗 Legumbres con cáscara, verduras crudas y de hoja',
     '🍊 Frutas cítricas o muy ácidas',
     '🍟 Snacks ultraprocesados y comida rápida',
