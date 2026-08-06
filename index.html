@@ -21,6 +21,8 @@
     --accent-deep: #C97A34;
     --safe: #49694C;
     --safe-bg: #EAF1E6;
+    --warn: #A9781F;
+    --warn-bg: #FBF0D3;
     --avoid: #B0472F;
     --avoid-bg: #F8E6DF;
     --line: #E4D9B8;
@@ -317,6 +319,189 @@
     color:var(--ink-soft);
   }
   footer .wrap{border-top:1px solid var(--line);padding-top:24px;}
+  .footer-refs{display:flex;flex-wrap:wrap;gap:8px 18px;margin:14px 0 18px;padding:0;list-style:none;}
+  .footer-refs li{font-family:'IBM Plex Mono', monospace;font-size:.72rem;letter-spacing:.03em;}
+  .footer-refs a{color:var(--primary-deep);text-decoration:none;border-bottom:1px solid var(--sage);}
+  .footer-refs a:hover{border-color:var(--primary-deep);}
+  .footer-updated{font-size:.78rem;color:var(--ink-soft);}
+
+  /* META ROW: reading time + CTA */
+  .hero-meta{display:flex;align-items:center;gap:18px;margin-top:22px;flex-wrap:wrap;}
+  .read-time{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.74rem;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .cta-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--accent);
+    color:#442306;
+    font-weight:600;
+    font-size:.92rem;
+    padding:12px 22px;
+    border-radius:999px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    box-shadow:0 4px 14px rgba(246,160,85,0.35);
+    transition:transform .15s, box-shadow .15s;
+  }
+  .cta-btn:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(246,160,85,0.45);}
+
+  /* PROGRESS BAR */
+  .progress-nav{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(247,240,221,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .progress-track{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:12px 24px;
+    max-width:940px;
+    margin:0 auto;
+    overflow-x:auto;
+  }
+  .progress-step{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    padding:6px 4px;
+    white-space:nowrap;
+  }
+  .progress-step .dot{
+    width:9px;height:9px;border-radius:50%;
+    border:1.5px solid var(--sage);
+    flex:none;
+    transition:background .15s, border-color .15s;
+  }
+  .progress-step.done .dot{background:var(--primary);border-color:var(--primary);}
+  .progress-step.current{color:var(--primary-deep);font-weight:600;}
+  .progress-step.current .dot{background:var(--accent);border-color:var(--accent);}
+  .progress-line{flex:1;height:1px;background:var(--line);min-width:14px;}
+
+  /* SEMAFORO */
+  .semaforo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media (max-width:700px){.semaforo-grid{grid-template-columns:1fr;}}
+  .sem-card{border-radius:var(--radius);padding:20px 20px 18px;border:1px solid var(--line);}
+  .sem-card .sem-light{font-size:1.4rem;line-height:1;}
+  .sem-card h4{font-family:'Fraunces', serif;font-size:1.02rem;margin:.4em 0 .3em;}
+  .sem-card ul{margin:10px 0 0;padding-left:18px;font-size:.87rem;color:var(--ink-soft);}
+  .sem-card li{margin-bottom:4px;}
+  .sem-card.green{background:var(--safe-bg);border-color:var(--sage);}
+  .sem-card.green h4{color:var(--safe);}
+  .sem-card.yellow{background:var(--warn-bg);border-color:#E4C877;}
+  .sem-card.yellow h4{color:var(--warn);}
+  .sem-card.red{background:var(--avoid-bg);border-color:#E3B7A8;}
+  .sem-card.red h4{color:var(--avoid);}
+
+  /* HYDRATION CALCULATOR */
+  .calc-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px 28px;
+    margin-top:24px;
+  }
+  .calc-card h3{font-size:1.1rem;}
+  .calc-card .calc-sub{color:var(--ink-soft);font-size:.88rem;margin:0 0 18px;}
+  .calc-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:18px;}
+  .calc-field label{display:block;font-family:'IBM Plex Mono', monospace;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px;}
+  .calc-field select, .calc-field input[type=number]{
+    width:100%;
+    padding:10px 12px;
+    border-radius:10px;
+    border:1.5px solid var(--line);
+    background:var(--bg);
+    font-family:'Work Sans', sans-serif;
+    font-size:.94rem;
+    color:var(--ink);
+  }
+  .calc-field select:focus, .calc-field input:focus{outline:2px solid var(--primary);outline-offset:1px;}
+  .calc-result{
+    background:var(--primary-deep);
+    color:#EAF3EE;
+    border-radius:var(--radius);
+    padding:18px 20px;
+    display:none;
+  }
+  .calc-result.show{display:block;animation:fade .25s ease;}
+  .calc-result .calc-amount{font-family:'Fraunces', serif;font-size:1.7rem;font-weight:600;color:#fff;}
+  .calc-result p{margin:.3em 0 0;font-size:.87rem;color:#CFE0D3;}
+
+  /* MEAL GENERATOR */
+  .home-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:20px;}
+  .home-item{
+    display:flex;align-items:center;gap:8px;
+    background:var(--surface);
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    padding:10px 12px;
+    font-size:.88rem;
+    cursor:pointer;
+    user-select:none;
+  }
+  .home-item.active{border-color:var(--primary);background:var(--safe-bg);}
+  .home-item input{accent-color:var(--primary);width:16px;height:16px;flex:none;}
+  .menu-result{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+  .menu-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-left:4px solid var(--primary);
+    border-radius:var(--radius);
+    padding:16px 18px;
+  }
+  .menu-card h4{font-family:'Fraunces', serif;font-size:.98rem;margin:0 0 4px;color:var(--primary-deep);}
+  .menu-card p{margin:0;font-size:.85rem;color:var(--ink-soft);}
+  .menu-empty{color:var(--ink-soft);font-size:.9rem;font-style:italic;}
+
+  /* FAQ ACCORDION */
+  .faq-list{display:flex;flex-direction:column;gap:10px;}
+  .faq-item{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .faq-item summary{
+    padding:16px 20px;
+    cursor:pointer;
+    font-weight:600;
+    font-size:.95rem;
+    color:var(--primary-deep);
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:'+';font-size:1.3rem;color:var(--ink-soft);transition:transform .15s;flex:none;}
+  .faq-item[open] summary::after{content:'\2212';}
+  .faq-item .faq-a{padding:0 20px 18px;font-size:.9rem;color:var(--ink-soft);}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+  }
 </style>
 </head>
 <body>
@@ -328,8 +513,43 @@
       <h1>Qué comer, qué evitar y cómo avanzar según tu tolerancia</h1>
       <p class="lead">Marca tus preferencias abajo y arma un plan de comidas ajustado a tu situación, con las porciones que sí conviene comer y las que es mejor dejar para después.</p>
       <span class="evidence-tag">✓ Orientación alineada a guías clínicas actuales</span>
+      <div class="hero-meta">
+        <span class="read-time">⏱ 3 min de lectura</span>
+        <a href="#preferencias" class="cta-btn">👇 Comienza aquí</a>
+      </div>
     </div>
-   <img class="plate-svg" src="https://st2.depositphotos.com/4297405/10036/v/450/depositphotos_100364888-stock-illustration-mascot-person-man-with-diarrhea.jpg" alt="Descripción de la foto">
+    <svg class="plate-svg" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración de un plato con arroz, plátano y sopa, junto a un vaso de suero de rehidratación oral">
+      <circle cx="140" cy="140" r="132" fill="#FBF5E7"/>
+      <ellipse cx="112" cy="176" rx="98" ry="20" fill="#E4D9B8" opacity=".5"/>
+      <!-- plate -->
+      <ellipse cx="108" cy="150" rx="92" ry="66" fill="#FFFFFF" stroke="#E4D9B8" stroke-width="2"/>
+      <ellipse cx="108" cy="150" rx="70" ry="48" fill="#F7F0DD"/>
+      <!-- rice -->
+      <ellipse cx="82" cy="140" rx="34" ry="22" fill="#FFFFFF" stroke="#E9D5A0" stroke-width="1.5"/>
+      <g fill="#E9D5A0" opacity=".7">
+        <ellipse cx="70" cy="134" rx="3" ry="2"/><ellipse cx="82" cy="130" rx="3" ry="2"/>
+        <ellipse cx="94" cy="136" rx="3" ry="2"/><ellipse cx="76" cy="146" rx="3" ry="2"/>
+        <ellipse cx="90" cy="146" rx="3" ry="2"/>
+      </g>
+      <!-- banana slices -->
+      <circle cx="128" cy="164" r="11" fill="#F6A055"/>
+      <circle cx="128" cy="164" r="7" fill="#FCEFD9"/>
+      <circle cx="146" cy="170" r="11" fill="#F6A055"/>
+      <circle cx="146" cy="170" r="7" fill="#FCEFD9"/>
+      <!-- carrot/potato -->
+      <ellipse cx="150" cy="140" rx="13" ry="10" fill="#F6A055" opacity=".85"/>
+      <ellipse cx="132" cy="120" rx="11" ry="9" fill="#EAD9A0"/>
+      <!-- soup bowl -->
+      <path d="M186 176c0 16-16 26-34 26s-34-10-34-26h68Z" fill="#A8C4A1"/>
+      <ellipse cx="152" cy="176" rx="34" ry="10" fill="#CFE0BF"/>
+      <!-- SRO glass -->
+      <path d="M214 96 l8 84 a10 10 0 0 0 10 9h10a10 10 0 0 0 10-9l8-84Z" fill="#EAF3EE" stroke="#49694C" stroke-width="2"/>
+      <rect x="212" y="120" width="60" height="34" fill="#49694C"/>
+      <path d="M214 96 l8 84 a10 10 0 0 0 10 9h10a10 10 0 0 0 10-9l8-84Z" fill="none" stroke="#2F4A34" stroke-width="2"/>
+      <rect x="222" y="82" width="36" height="14" rx="3" fill="#2F4A34"/>
+      <!-- steam -->
+      <path d="M148 96c-4-8 4-10 0-18M158 96c-4-8 4-10 0-18" stroke="#A8C4A1" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+    </svg>
   </div>
 
   <div class="alert">
@@ -337,6 +557,60 @@
     <p><strong>Antes de seguir esta guía:</strong> consulta a un médico si hay sangre en las deposiciones, fiebre alta, dolor abdominal intenso, signos de deshidratación (boca muy seca, mareos, orina escasa), si los síntomas duran más de 3 días en un adulto, o si se trata de un lactante, niño pequeño, adulto mayor, embarazada o persona inmunosuprimida. Esta página entrega orientación general, no reemplaza una evaluación médica.</p>
   </div>
 </header>
+
+<nav class="progress-nav" aria-label="Progreso de la guía">
+  <div class="progress-track" id="progressTrack">
+    <button class="progress-step" data-target="preferencias"><span class="dot"></span>Preferencias</button>
+    <span class="progress-line"></span>
+    <button class="progress-step" data-target="dias"><span class="dot"></span>Plan</button>
+    <span class="progress-line"></span>
+    <button class="progress-step" data-target="alimentos"><span class="dot"></span>Alimentos</button>
+    <span class="progress-line"></span>
+    <button class="progress-step" data-target="hidratacion"><span class="dot"></span>Hidratación</button>
+  </div>
+</nav>
+
+<section id="semaforo">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Antes de todo</span>
+      <h2>¿Puedo manejar esto en casa?</h2>
+      <p>Usa esta guía rápida para saber si basta con cuidados en casa o si conviene buscar atención médica.</p>
+    </div>
+    <div class="semaforo-grid">
+      <div class="sem-card green">
+        <span class="sem-light">🟢</span>
+        <h4>Puedes manejarte en casa</h4>
+        <ul>
+          <li>Diarrea de menos de 48 horas</li>
+          <li>Sin fiebre</li>
+          <li>Sin sangre en las deposiciones</li>
+          <li>Toleras líquidos sin vomitar</li>
+        </ul>
+      </div>
+      <div class="sem-card yellow">
+        <span class="sem-light">🟡</span>
+        <h4>Consulta hoy</h4>
+        <ul>
+          <li>Más de 6 deposiciones al día</li>
+          <li>Fiebre</li>
+          <li>Dolor abdominal importante</li>
+          <li>Vómitos repetidos</li>
+        </ul>
+      </div>
+      <div class="sem-card red">
+        <span class="sem-light">🔴</span>
+        <h4>Urgencias</h4>
+        <ul>
+          <li>Sangre en las deposiciones</li>
+          <li>Signos de shock (mareo intenso, confusión)</li>
+          <li>Deshidratación importante</li>
+          <li>Lactante, embarazada o inmunosuprimido con síntomas severos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="evidencia">
   <div class="wrap">
@@ -488,12 +762,95 @@
         </ul>
       </div>
     </div>
+
+    <div class="calc-card">
+      <h3>Calculadora de referencia de SRO</h3>
+      <p class="calc-sub">Una estimación general para orientarte. No reemplaza la indicación de un profesional de salud, especialmente en niños, adultos mayores o embarazo.</p>
+      <div class="calc-fields">
+        <div class="calc-field">
+          <label for="calcWeight">Peso (kg)</label>
+          <input type="number" id="calcWeight" min="1" max="200" placeholder="Ej: 70">
+        </div>
+        <div class="calc-field">
+          <label for="calcStools">Deposiciones en las últimas 24h</label>
+          <input type="number" id="calcStools" min="0" max="30" placeholder="Ej: 5">
+        </div>
+      </div>
+      <button class="cta-btn" id="calcBtn" type="button">Calcular</button>
+      <div class="calc-result" id="calcResult">
+        <span class="calc-amount" id="calcAmount"></span>
+        <p>Se recomienda aproximadamente esa cantidad de SRO durante las próximas 4 horas, en sorbos pequeños y frecuentes. Ajusta según la sed y observa signos de deshidratación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="encasa">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Con lo que tienes a mano</span>
+      <h2>Genera tu menú de hoy</h2>
+      <p>Marca lo que tienes en casa y te sugerimos combinaciones suaves y fáciles de digerir, ya ajustadas a tus preferencias.</p>
+    </div>
+    <div class="home-grid" id="homeGrid">
+      <label class="home-item" data-food="arroz"><input type="checkbox">🍚 Arroz</label>
+      <label class="home-item" data-food="pollo"><input type="checkbox">🍗 Pollo</label>
+      <label class="home-item" data-food="platano"><input type="checkbox">🍌 Plátano</label>
+      <label class="home-item" data-food="manzana"><input type="checkbox">🍎 Manzana</label>
+      <label class="home-item" data-food="avena"><input type="checkbox">🥣 Avena</label>
+      <label class="home-item" data-food="huevo"><input type="checkbox">🥚 Huevo</label>
+      <label class="home-item" data-food="zanahoria"><input type="checkbox">🥕 Zanahoria</label>
+      <label class="home-item" data-food="papa"><input type="checkbox">🥔 Papa</label>
+      <label class="home-item" data-food="pan"><input type="checkbox">🍞 Pan tostado</label>
+      <label class="home-item" data-food="caldo"><input type="checkbox">🍲 Caldo</label>
+      <label class="home-item" data-food="yogur"><input type="checkbox">🥄 Yogur natural</label>
+    </div>
+    <div class="menu-result" id="menuResult"></div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Dudas frecuentes</span>
+      <h2>Preguntas comunes</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>¿Puedo tomar bebidas de cola?</summary>
+        <div class="faq-a">No se recomienda. Tienen demasiada azúcar y poca sal, lo que puede empeorar la diarrea. El SRO de farmacia está formulado específicamente para reponer líquidos y sales.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Sirve el té para la diarrea?</summary>
+        <div class="faq-a">El té suave (manzanilla, jengibre) es bien tolerado y puede ayudar a que te sientas mejor, pero no reemplaza al SRO como fuente principal de hidratación.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuándo puedo volver a comer normal?</summary>
+        <div class="faq-a">Cuando las deposiciones sean más firmes y el apetito vuelva, puedes retomar tu alimentación habitual de forma gradual, prestando atención a cómo responde el cuerpo con cada alimento nuevo.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Es necesario dejar de comer mientras dura la diarrea?</summary>
+        <div class="faq-a">No. La evidencia actual no respalda el ayuno. Se recomienda seguir comiendo en porciones pequeñas y frecuentes, apenas el apetito lo permita.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Los antibióticos siempre son necesarios?</summary>
+        <div class="faq-a">No. La mayoría de las diarreas agudas son de origen viral y se resuelven solas con buena hidratación. El uso de antibióticos debe ser evaluado por un profesional de salud.</div>
+      </details>
+    </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    Esta guía entrega orientación alimentaria general para diarrea aguda leve, alineada con guías clínicas actuales de medicina familiar y salud pública, y no reemplaza una consulta médica. Ante síntomas severos, prolongados o en poblaciones de riesgo, consulta a un profesional de salud.
+    <p style="margin:0 0 4px;">Esta guía entrega orientación alimentaria general para diarrea aguda leve, alineada con guías clínicas actuales de medicina familiar y salud pública, y no reemplaza una consulta médica. Ante síntomas severos, prolongados o en poblaciones de riesgo, consulta a un profesional de salud.</p>
+    <span class="eyebrow" style="display:block;margin-top:18px;">Basado en las guías de</span>
+    <ul class="footer-refs">
+      <li><a href="https://www.who.int/" target="_blank" rel="noopener">OMS</a></li>
+      <li><a href="https://www.espghan.org/" target="_blank" rel="noopener">ESPGHAN</a></li>
+      <li><a href="https://www.nice.org.uk/" target="_blank" rel="noopener">NICE</a></li>
+      <li><a href="https://gi.org/" target="_blank" rel="noopener">ACG</a></li>
+    </ul>
+    <span class="footer-updated">Actualizado: agosto de 2026</span>
   </div>
 </footer>
 
@@ -532,36 +889,36 @@ document.querySelectorAll('.day-tab').forEach(tab=>{
 // ---- Food data ----
 function proteinSafe(){
   return state.vegetariano
-    ? ['Lentejas bien cocidas y coladas', 'Tofu al vapor', 'Huevo cocido (sin freír)']
-    : ['Pollo hervido o al vapor, sin piel', 'Pescado blanco al vapor', 'Huevo cocido (sin freír)'];
+    ? ['🌱 Lentejas bien cocidas y coladas', '🌱 Tofu al vapor', '🥚 Huevo cocido (sin freír)']
+    : ['🍗 Pollo hervido o al vapor, sin piel', '🐟 Pescado blanco al vapor', '🥚 Huevo cocido (sin freír)'];
 }
 function dairySafe(){
-  return state.lactosa ? [] : ['Yogur natural sin azúcar (con cultivos vivos)'];
+  return state.lactosa ? [] : ['🥄 Yogur natural sin azúcar (con cultivos vivos)'];
 }
 function dairyAvoid(){
-  return ['Leche entera', 'Quesos maduros', 'Helados y postres cremosos'].concat(state.lactosa ? ['Cualquier lácteo con lactosa'] : []);
+  return ['🥛 Leche entera', '🧀 Quesos maduros', '🍨 Helados y postres cremosos'].concat(state.lactosa ? ['🚫 Cualquier lácteo con lactosa'] : []);
 }
 
 function buildLists(){
   const safe = [
-    'Agua de arroz, arroz blanco bien cocido',
-    'Plátano maduro',
-    'Manzana pelada, rallada o al horno (sin cáscara)',
-    'Pan tostado o galletas de agua, sin mantequilla',
-    'Zanahoria y papa cocidas, en puré o al vapor',
-    'Caldo colado (pollo o verduras), sin grasa',
-    'Té suave (manzanilla, jengibre), sin azúcar en exceso',
+    '🍚 Agua de arroz, arroz blanco bien cocido',
+    '🍌 Plátano maduro',
+    '🍎 Manzana pelada, rallada o al horno (sin cáscara)',
+    '🍞 Pan tostado o galletas de agua, sin mantequilla',
+    '🥕 Zanahoria y papa cocidas, en puré o al vapor',
+    '🍲 Caldo colado (pollo o verduras), sin grasa',
+    '🍵 Té suave (manzanilla, jengibre), sin azúcar en exceso',
     ...proteinSafe(),
     ...dairySafe()
   ];
   const avoid = [
-    'Frituras y comida grasosa en general',
-    'Comida picante o muy condimentada',
-    'Café, alcohol y bebidas con cafeína',
-    'Bebidas gaseosas y jugos muy azucarados',
-    'Legumbres con cáscara, verduras crudas y de hoja',
-    'Frutas cítricas o muy ácidas',
-    'Snacks ultraprocesados y comida rápida',
+    '🚫 Frituras y comida grasosa en general',
+    '🌶 Comida picante o muy condimentada',
+    '☕ Café, alcohol y bebidas con cafeína',
+    '🥤 Bebidas gaseosas y jugos muy azucarados',
+    '🥗 Legumbres con cáscara, verduras crudas y de hoja',
+    '🍊 Frutas cítricas o muy ácidas',
+    '🍟 Snacks ultraprocesados y comida rápida',
     ...dairyAvoid()
   ];
   return {safe, avoid};
@@ -618,9 +975,105 @@ function render(){
   renderDays();
   renderMedicalNote();
   renderFilterSummary();
+  if(typeof renderMenu === 'function') renderMenu();
 }
 
 render();
+
+// ---- Progress bar ----
+const progressSteps = Array.from(document.querySelectorAll('.progress-step'));
+const trackedSections = progressSteps.map(s=>document.getElementById(s.dataset.target)).filter(Boolean);
+
+progressSteps.forEach(step=>{
+  step.addEventListener('click', ()=>{
+    const target = document.getElementById(step.dataset.target);
+    if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+function updateProgress(){
+  let currentIndex = -1;
+  trackedSections.forEach((sec, i)=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= 140) currentIndex = i;
+  });
+  progressSteps.forEach((step, i)=>{
+    step.classList.toggle('done', i < currentIndex);
+    step.classList.toggle('current', i === currentIndex);
+  });
+}
+if(trackedSections.length){
+  window.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+}
+
+// ---- Hydration calculator ----
+const calcBtn = document.getElementById('calcBtn');
+if(calcBtn){
+  calcBtn.addEventListener('click', ()=>{
+    const weight = parseFloat(document.getElementById('calcWeight').value);
+    const stools = parseFloat(document.getElementById('calcStools').value) || 0;
+    const resultBox = document.getElementById('calcResult');
+    const amountEl = document.getElementById('calcAmount');
+    if(!weight || weight <= 0){
+      amountEl.textContent = 'Ingresa un peso válido';
+      resultBox.classList.add('show');
+      return;
+    }
+    // Estimación general: reposición base + pérdidas por deposición líquida
+    const base = weight * 65;
+    const losses = stools * weight * 8;
+    const low = Math.round((base + losses*0.7) / 50) * 50;
+    const high = Math.round((base + losses*1.3) / 50) * 50;
+    amountEl.textContent = `${low}–${high} mL de SRO`;
+    resultBox.classList.add('show');
+  });
+}
+
+// ---- Meal generator (foods at home) ----
+const homeState = {};
+const recipes = [
+  {need:['arroz','pollo'], name:'Arroz con pollo desmenuzado', desc:'Arroz blanco bien cocido con pollo hervido o al vapor, sin piel.', vegetarian:false},
+  {need:['arroz'], name:'Arroz blanco con caldo', desc:'Arroz bien cocido, acompañado de caldo colado y tibio.', vegetarian:true, requiresAny:['caldo']},
+  {need:['papa','zanahoria'], name:'Puré de papa y zanahoria', desc:'Ambas cocidas al vapor y hechas puré, sin mantequilla ni grasa.', vegetarian:true},
+  {need:['huevo','pan'], name:'Tostada con huevo cocido', desc:'Pan tostado sin mantequilla junto a huevo duro.', vegetarian:true},
+  {need:['avena'], name:'Avena suave con plátano', desc:'Avena cocida en agua, sin lácteos, con plátano maduro picado.', vegetarian:true},
+  {need:['platano'], name:'Plátano maduro', desc:'Ideal como colación entre comidas principales.', vegetarian:true},
+  {need:['manzana'], name:'Manzana rallada o al horno', desc:'Pelada, rallada o al horno, sin cáscara.', vegetarian:true},
+  {need:['caldo'], name:'Caldo colado tibio', desc:'Caldo de pollo o verduras, colado y sin grasa.', vegetarian:false},
+  {need:['yogur'], name:'Yogur natural sin azúcar', desc:'En porción pequeña, si se tolera bien.', vegetarian:true, lactoseFree:false},
+  {need:['pan'], name:'Pan tostado o galletas de agua', desc:'Sin mantequilla, en porciones pequeñas.', vegetarian:true},
+];
+
+document.querySelectorAll('.home-item').forEach(item=>{
+  const key = item.dataset.food;
+  const input = item.querySelector('input');
+  item.addEventListener('click', (e)=>{
+    if(e.target.tagName !== 'INPUT'){ input.checked = !input.checked; }
+    homeState[key] = input.checked;
+    item.classList.toggle('active', input.checked);
+    renderMenu();
+  });
+});
+
+function renderMenu(){
+  const box = document.getElementById('menuResult');
+  if(!box) return;
+  const have = Object.keys(homeState).filter(k=>homeState[k]);
+  if(have.length === 0){
+    box.innerHTML = '<p class="menu-empty">Marca los alimentos que tienes en casa para ver sugerencias.</p>';
+    return;
+  }
+  let matches = recipes.filter(r=>r.need.every(n=>homeState[n]));
+  if(state.vegetariano) matches = matches.filter(r=>r.vegetarian !== false);
+  if(state.lactosa) matches = matches.filter(r=>r.lactoseFree !== false);
+  if(matches.length === 0){
+    box.innerHTML = '<p class="menu-empty">Con lo que marcaste aún no arma una combinación. Prueba sumar arroz, papa o caldo.</p>';
+    return;
+  }
+  box.innerHTML = matches.map(r=>`<div class="menu-card"><h4>✓ ${r.name}</h4><p>${r.desc}</p></div>`).join('');
+}
+renderMenu();
 </script>
 
 </body>
