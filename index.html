@@ -54,7 +54,7 @@
   }
   .wrap{max-width:940px;margin:0 auto;padding:0 24px;}
   a{color:var(--primary-deep);}
- 
+
   /* HERO */
   header.hero{
     padding:64px 0 40px;
@@ -70,7 +70,7 @@
   .hero h1{font-size:clamp(1.9rem,3.6vw,2.7rem); line-height:1.08;}
   .hero p.lead{font-size:1.05rem;color:var(--ink-soft);max-width:46ch;}
   .plate-svg{width:100%;max-width:280px;justify-self:center;}
- 
+
   .alert{
     margin-top:28px;
     background:var(--avoid-bg);
@@ -84,7 +84,7 @@
   .alert strong{color:var(--avoid);}
   .alert svg{flex:none;margin-top:2px;}
   .alert p{margin:.2em 0 0 0;font-size:.92rem;color:var(--ink);}
- 
+
   .evidence-tag{
     display:inline-flex;
     align-items:center;
@@ -98,14 +98,14 @@
     padding:6px 12px;
     border-radius:999px;
   }
- 
+
   /* SECTIONS */
   section{padding:52px 0;border-bottom:1px solid var(--line);}
   section:last-of-type{border-bottom:none;}
   .section-head{max-width:62ch;margin-bottom:28px;}
   .section-head h2{font-size:1.5rem;}
   .section-head p{color:var(--ink-soft);margin:0;}
- 
+
   /* PREFERENCES */
   .pref-grid{
     display:grid;
@@ -132,7 +132,7 @@
   .pref-card input{accent-color:var(--primary);width:18px;height:18px;flex:none;}
   .pref-card .label{font-weight:600;font-size:.95rem;}
   .pref-card .sub{display:block;font-size:.78rem;color:var(--ink-soft);font-weight:400;}
- 
+
   .note-box{
     margin-top:16px;
     background:#FCEFD9;
@@ -144,7 +144,7 @@
     display:none;
   }
   .note-box.show{display:block;}
- 
+
   /* ACTIVE FILTER SUMMARY */
   .filter-summary{
     display:flex;
@@ -178,7 +178,7 @@
     font-weight:400;
     padding:0;
   }
- 
+
   /* TIMELINE / DAYS */
   .day-tabs{
     display:flex;
@@ -206,7 +206,7 @@
   .day-panel{display:none;}
   .day-panel.active{display:block;animation:fade .25s ease;}
   @keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
- 
+
   .day-card{
     background:var(--surface);
     border-radius:var(--radius);
@@ -232,7 +232,7 @@
     padding-top:2px;
   }
   .meal-items{font-size:.94rem;}
- 
+
   /* FOOD LISTS */
   .food-cols{
     display:grid;
@@ -256,7 +256,7 @@
     border-top:1px solid rgba(0,0,0,0.06);
   }
   .food-col li:first-of-type{border-top:none;}
- 
+
   /* HYDRATION */
   .hydration-grid{
     display:grid;
@@ -282,7 +282,7 @@
   .signs-card h3{font-size:1.05rem;}
   .signs-card ul{padding-left:18px;margin:14px 0 0;font-size:.92rem;color:var(--ink-soft);}
   .signs-card li{margin-bottom:6px;}
- 
+
   /* EVIDENCE SECTION */
   .evidence-grid{
     display:grid;
@@ -310,7 +310,7 @@
     color:var(--primary-deep);
   }
   .evidence-card p{font-size:.87rem;color:var(--ink-soft);margin:0;}
- 
+
   footer{
     padding:36px 0 60px;
     font-size:.82rem;
@@ -320,7 +320,7 @@
 </style>
 </head>
 <body>
- 
+
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
@@ -338,13 +338,13 @@
       <text x="110" y="124" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#2F4A34" letter-spacing="1">TOLERANCIA</text>
     </svg>
   </div>
- 
+
   <div class="alert">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 16.5h.01M10.29 3.86l-8.18 14.18A2 2 0 0 0 3.82 21h16.36a2 2 0 0 0 1.71-3.03L13.71 3.86a2 2 0 0 0-3.42 0Z" stroke="#B0472F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <p><strong>Antes de seguir esta guía:</strong> consulta a un médico si hay sangre en las deposiciones, fiebre alta, dolor abdominal intenso, signos de deshidratación (boca muy seca, mareos, orina escasa), si los síntomas duran más de 3 días en un adulto, o si se trata de un lactante, niño pequeño, adulto mayor, embarazada o persona inmunosuprimida. Esta página entrega orientación general, no reemplaza una evaluación médica.</p>
   </div>
 </header>
- 
+
 <section id="evidencia">
   <div class="wrap">
     <div class="section-head">
@@ -371,7 +371,7 @@
     </div>
   </div>
 </section>
- 
+
 <section id="preferencias">
   <div class="wrap">
     <div class="section-head">
@@ -406,7 +406,7 @@
     </div>
   </div>
 </section>
- 
+
 <section id="dias">
   <div class="wrap">
     <div class="section-head">
@@ -414,15 +414,15 @@
       <h2>Tu plan, según tu tolerancia</h2>
       <p>La reintroducción de alimentos se guía por cómo te sientes, no por un calendario fijo. Estas fases son una referencia general de avance progresivo.</p>
     </div>
- 
+
     <div class="filter-summary" id="filterSummary"></div>
- 
+
     <div class="day-tabs">
       <button class="day-tab active" data-day="1">FASE 1 · Hidratación</button>
       <button class="day-tab" data-day="2">FASE 2 · Comidas suaves</button>
       <button class="day-tab" data-day="3">FASE 3 · Reintroducción</button>
     </div>
- 
+
     <div class="day-panel active" id="panel-1">
       <div class="day-card">
         <h3>Foco: reponer líquidos y sales</h3>
@@ -446,7 +446,7 @@
     </div>
   </div>
 </section>
- 
+
 <section id="alimentos">
   <div class="wrap">
     <div class="section-head">
@@ -466,7 +466,7 @@
     </div>
   </div>
 </section>
- 
+
 <section id="hidratacion">
   <div class="wrap">
     <div class="section-head">
@@ -497,13 +497,13 @@
     </div>
   </div>
 </section>
- 
+
 <footer>
   <div class="wrap">
     Esta guía entrega orientación alimentaria general para diarrea aguda leve, alineada con guías clínicas actuales de medicina familiar y salud pública, y no reemplaza una consulta médica. Ante síntomas severos, prolongados o en poblaciones de riesgo, consulta a un profesional de salud.
   </div>
 </footer>
- 
+
 <script>
 const state = {vegetariano:false, lactosa:false, ninio:false, mayor:false, embarazo:false};
 const prefLabels = {
@@ -513,7 +513,7 @@ const prefLabels = {
   mayor:'Adulto mayor',
   embarazo:'Embarazo'
 };
- 
+
 // ---- Preference cards ----
 document.querySelectorAll('.pref-card').forEach(card=>{
   const key = card.dataset.pref;
@@ -525,7 +525,7 @@ document.querySelectorAll('.pref-card').forEach(card=>{
     render();
   });
 });
- 
+
 // ---- Day tabs ----
 document.querySelectorAll('.day-tab').forEach(tab=>{
   tab.addEventListener('click', ()=>{
@@ -535,7 +535,7 @@ document.querySelectorAll('.day-tab').forEach(tab=>{
     document.getElementById('panel-'+tab.dataset.day).classList.add('active');
   });
 });
- 
+
 // ---- Food data ----
 function proteinSafe(){
   return state.vegetariano
@@ -548,7 +548,7 @@ function dairySafe(){
 function dairyAvoid(){
   return ['Leche entera', 'Quesos maduros', 'Helados y postres cremosos'].concat(state.lactosa ? ['Cualquier lácteo con lactosa'] : []);
 }
- 
+
 function buildLists(){
   const safe = [
     'Agua de arroz, arroz blanco bien cocido',
@@ -573,23 +573,23 @@ function buildLists(){
   ];
   return {safe, avoid};
 }
- 
+
 function renderFoodLists(){
   const {safe, avoid} = buildLists();
   document.getElementById('listSafe').innerHTML = safe.map(f=>`<li>${f}</li>`).join('');
   document.getElementById('listAvoid').innerHTML = avoid.map(f=>`<li>${f}</li>`).join('');
 }
- 
+
 function renderDays(){
   const proteinLabel = state.vegetariano ? 'lentejas coladas o tofu al vapor' : 'pollo hervido desmenuzado';
   const dairyLine = state.lactosa ? '' : `<div class="meal-row"><div class="meal-time">Opcional</div><div class="meal-items">Un poco de yogur natural sin azúcar, si se tolera bien.</div></div>`;
- 
+
   document.getElementById('meals-1').innerHTML = `
     <div class="meal-row"><div class="meal-time">Todo el día</div><div class="meal-items">Sorbos frecuentes de suero de rehidratación oral (SRO) o agua de arroz.</div></div>
     <div class="meal-row"><div class="meal-time">Si hay apetito</div><div class="meal-items">No hace falta ayunar: caldo colado tibio, sin grasa, o arroz blanco en porciones pequeñas.</div></div>
     <div class="meal-row"><div class="meal-time">Evitar</div><div class="meal-items">Grasas, lácteos con lactosa, café, alcohol y bebidas azucaradas.</div></div>
   `;
- 
+
   document.getElementById('meals-2').innerHTML = `
     <div class="meal-row"><div class="meal-time">Desayuno</div><div class="meal-items">Pan tostado sin mantequilla + té suave, o arroz blanco con un poco de caldo.</div></div>
     <div class="meal-row"><div class="meal-time">Almuerzo</div><div class="meal-items">Arroz blanco, papa o zanahoria cocida, y ${proteinLabel}.</div></div>
@@ -597,19 +597,19 @@ function renderDays(){
     <div class="meal-row"><div class="meal-time">Cena</div><div class="meal-items">Versión liviana del almuerzo, en porción pequeña.</div></div>
     ${dairyLine}
   `;
- 
+
   document.getElementById('meals-3').innerHTML = `
     <div class="meal-row"><div class="meal-time">Guía general</div><div class="meal-items">Si las deposiciones ya son más firmes, no hay razón para seguir restringiendo: vuelve gradualmente a tu dieta habitual.</div></div>
     <div class="meal-row"><div class="meal-time">Ir probando</div><div class="meal-items">Suma variedad de a poco y observa cómo responde el cuerpo con cada alimento nuevo.</div></div>
     <div class="meal-row"><div class="meal-time">Seguir evitando</div><div class="meal-items">Frituras, picante, alcohol, café y ultraprocesados, hasta sentirte completamente recuperado/a.</div></div>
   `;
 }
- 
+
 function renderMedicalNote(){
   const flagged = state.ninio || state.mayor || state.embarazo;
   document.getElementById('medicalNote').classList.toggle('show', flagged);
 }
- 
+
 function renderFilterSummary(){
   const active = Object.keys(state).filter(k=>state[k]);
   const box = document.getElementById('filterSummary');
@@ -619,17 +619,16 @@ function renderFilterSummary(){
     box.innerHTML = `<span class="fs-label">Plan ajustado para</span>` + active.map(k=>`<span class="fs-chip">${prefLabels[k]}</span>`).join('');
   }
 }
- 
+
 function render(){
   renderFoodLists();
   renderDays();
   renderMedicalNote();
   renderFilterSummary();
 }
- 
+
 render();
 </script>
- 
+
 </body>
 </html>
- 
