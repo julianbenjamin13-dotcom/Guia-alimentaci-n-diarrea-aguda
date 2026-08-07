@@ -473,6 +473,75 @@
   .menu-card p{margin:0;font-size:.85rem;color:var(--ink-soft);}
   .menu-empty{color:var(--ink-soft);font-size:.9rem;font-style:italic;}
 
+  /* MEAL BUILDER (selectable options per meal) */
+  .meal-slot{margin-bottom:18px;}
+  .meal-slot:last-child{margin-bottom:0;}
+  .meal-slot-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.74rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--primary);
+    margin-bottom:8px;
+    display:block;
+  }
+  .meal-options{display:flex;flex-wrap:wrap;gap:8px;}
+  .meal-option{
+    font-family:'Work Sans', sans-serif;
+    background:var(--bg);
+    border:1.5px solid var(--line);
+    border-radius:999px;
+    padding:9px 16px;
+    font-size:.86rem;
+    text-align:left;
+    cursor:pointer;
+    transition:all .15s;
+    color:var(--ink);
+  }
+  .meal-option:hover{border-color:var(--sage);}
+  .meal-option.selected{
+    background:var(--primary);
+    border-color:var(--primary);
+    color:#fff;
+    font-weight:600;
+  }
+  .meal-note{font-size:.85rem;color:var(--ink-soft);margin:0 0 18px;}
+
+  .menu-summary{
+    margin-top:24px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px 28px;
+  }
+  .menu-summary h3{font-size:1.1rem;}
+  .menu-summary .summary-sub{color:var(--ink-soft);font-size:.88rem;margin:0 0 18px;}
+  .summary-day{margin-bottom:16px;}
+  .summary-day:last-child{margin-bottom:0;}
+  .summary-day h4{font-family:'Fraunces', serif;font-size:.98rem;color:var(--primary-deep);margin:0 0 8px;}
+  .summary-row{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:7px 0;font-size:.9rem;border-top:1px dashed var(--line);}
+  .summary-row:first-of-type{border-top:none;}
+  .summary-row .sr-label{font-family:'IBM Plex Mono', monospace;font-size:.72rem;text-transform:uppercase;color:var(--ink-soft);padding-top:2px;}
+  .summary-row .sr-value.empty{color:var(--ink-soft);font-style:italic;}
+  .summary-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:20px;}
+  .btn-secondary{
+    font-family:'Work Sans', sans-serif;
+    font-size:.86rem;
+    font-weight:600;
+    padding:10px 18px;
+    border-radius:999px;
+    border:1.5px solid var(--primary);
+    background:transparent;
+    color:var(--primary-deep);
+    cursor:pointer;
+    transition:all .15s;
+  }
+  .btn-secondary:hover{background:var(--safe-bg);}
+  .copy-feedback{font-size:.82rem;color:var(--primary);display:none;}
+  .copy-feedback.show{display:inline;}
+  @media (max-width:600px){.summary-row{grid-template-columns:1fr;gap:2px;}}
+
   /* FAQ ACCORDION */
   .faq-list{display:flex;flex-direction:column;gap:10px;}
   .faq-item{
@@ -678,16 +747,16 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Paso 2</span>
-      <h2>Tu plan, según tu tolerancia</h2>
-      <p>La reintroducción de alimentos se guía por cómo te sientes, no por un calendario fijo. Estas fases son una referencia general de avance progresivo.</p>
+      <h2>Arma tu menú de los primeros 3 días</h2>
+      <p>La reintroducción de alimentos se guía por cómo te sientes, no por un calendario fijo, pero aquí tienes una referencia día a día. Toca la opción que prefieras en cada desayuno, almuerzo y cena para armar tu propio menú.</p>
     </div>
 
     <div class="filter-summary" id="filterSummary"></div>
 
     <div class="day-tabs">
-      <button class="day-tab active" data-day="1">FASE 1 · Hidratación</button>
-      <button class="day-tab" data-day="2">FASE 2 · Comidas suaves</button>
-      <button class="day-tab" data-day="3">FASE 3 · Reintroducción</button>
+      <button class="day-tab active" data-day="1">DÍA 1 · Hidratación</button>
+      <button class="day-tab" data-day="2">DÍA 2 · Comidas suaves</button>
+      <button class="day-tab" data-day="3">DÍA 3 · Reintroducción</button>
     </div>
 
     <div class="day-panel active" id="panel-1">
@@ -709,6 +778,16 @@
         <h3>Foco: volver a la alimentación habitual</h3>
         <p class="day-desc">Si las deposiciones ya son más firmes, no hay razón para seguir restringiendo. Vuelve gradualmente a tu dieta normal, prestando atención a cómo responde el cuerpo.</p>
         <div id="meals-3"></div>
+      </div>
+    </div>
+
+    <div class="menu-summary">
+      <h3>🗒️ Tu menú armado</h3>
+      <p class="summary-sub">Un resumen de lo que vas eligiendo en cada día, para tenerlo a mano o compartirlo.</p>
+      <div id="menuSummaryBody"></div>
+      <div class="summary-actions">
+        <button class="btn-secondary" id="copyMenuBtn" type="button">📋 Copiar mi menú</button>
+        <span class="copy-feedback" id="copyFeedback">¡Copiado!</span>
       </div>
     </div>
   </div>
@@ -893,7 +972,7 @@ function proteinSafe(){
     : ['🍗 Pollo hervido o al vapor, sin piel', '🐟 Pescado blanco al vapor', '🥚 Huevo cocido (sin freír)'];
 }
 function dairySafe(){
-  return state.lactosa ? ['🥄 Yogur natural sin azúcar (con cultivos vivos)'] : [];
+  return state.lactosa ? [] : ['🥄 Yogur natural sin azúcar (con cultivos vivos)'];
 }
 function dairyAvoid(){
   return ['🥛 Leche entera', '🧀 Quesos maduros', '🍨 Helados y postres cremosos'].concat(state.lactosa ? ['🚫 Cualquier lácteo con lactosa'] : []);
@@ -904,7 +983,8 @@ function buildLists(){
     '🍚 Agua de arroz, arroz blanco bien cocido',
     '🍌 Plátano maduro',
     '🍎 Manzana pelada, rallada o al horno (sin cáscara)',
-    '🍞 Pan tostado (sin mantequilla) o galletas de agua',
+    '🍞 Pan tostado o galletas de agua, sin mantequilla',
+    '🥕 Zanahoria y papa cocidas, en puré o al vapor',
     '🍲 Caldo colado (pollo o verduras), sin grasa',
     '🍵 Té suave (manzanilla, jengibre), sin azúcar en exceso',
     ...proteinSafe(),
@@ -914,7 +994,7 @@ function buildLists(){
     '🚫 Frituras y comida grasosa en general',
     '🌶 Comida picante o muy condimentada',
     '☕ Café, alcohol y bebidas con cafeína',
-    '🥤 Bebidas gaseosas, besidas isotónicas y jugos muy azucarados',
+    '🥤 Bebidas gaseosas y jugos muy azucarados',
     '🥗 Legumbres con cáscara, verduras crudas y de hoja',
     '🍊 Frutas cítricas o muy ácidas',
     '🍟 Snacks ultraprocesados y comida rápida',
@@ -929,29 +1009,162 @@ function renderFoodLists(){
   document.getElementById('listAvoid').innerHTML = avoid.map(f=>`<li>${f}</li>`).join('');
 }
 
+// ---- 3-day menu builder: options per meal, adjusted to preferences ----
+const menuChoices = {
+  1:{desayuno:null, almuerzo:null, cena:null},
+  2:{desayuno:null, almuerzo:null, colacion:null, cena:null},
+  3:{desayuno:null, almuerzo:null, cena:null}
+};
+const mealLabels = {desayuno:'Desayuno', almuerzo:'Almuerzo', colacion:'Colación', cena:'Cena'};
+const dayTitles = {1:'Día 1 · Hidratación', 2:'Día 2 · Comidas suaves', 3:'Día 3 · Reintroducción'};
+
+function mealOptionSet(day, meal){
+  const veg = state.vegetariano;
+  const noLact = state.lactosa;
+  const proteinAlmuerzo2 = veg ? 'lentejas bien cocidas y coladas' : 'pollo hervido o al vapor, desmenuzado y sin piel';
+  const proteinAlmuerzo2b = veg ? 'Tofu al vapor' : 'Pescado blanco al vapor';
+  const proteinAlmuerzo3 = veg ? 'legumbres bien cocidas y coladas' : 'pollo o pescado suave';
+
+  const sets = {
+    1:{
+      desayuno:[
+        'Agua de arroz tibia + galletas de agua, si hay apetito',
+        'Té suave (manzanilla o jengibre) + tostada sin mantequilla',
+        'Solo sorbos de SRO, sin sólidos por ahora'
+      ],
+      almuerzo:[
+        'Caldo colado tibio, sin grasa',
+        'Arroz blanco bien cocido, porción pequeña',
+        'Puré de papa o zanahoria, sin mantequilla'
+      ],
+      cena:[
+        'Repetir caldo colado, porción pequeña',
+        'Un poco de arroz blanco, si el cuerpo lo tolera',
+        'Solo SRO, si no hay apetito'
+      ]
+    },
+    2:{
+      desayuno:[
+        'Pan tostado sin mantequilla + té suave',
+        'Arroz blanco con un poco de caldo colado',
+        ...(noLact ? [] : ['Yogur natural sin azúcar + plátano maduro'])
+      ],
+      almuerzo:[
+        `Arroz blanco con ${proteinAlmuerzo2}`,
+        'Puré de papa y zanahoria + huevo cocido',
+        `${proteinAlmuerzo2b} con arroz blanco`
+      ],
+      colacion:[
+        'Plátano maduro',
+        'Manzana pelada, rallada o al horno'
+      ],
+      cena:[
+        'Versión liviana de lo elegido en el almuerzo',
+        'Arroz blanco con puré de papa o zanahoria',
+        'Caldo colado + pan tostado sin mantequilla'
+      ]
+    },
+    3:{
+      desayuno:[
+        'Pan tostado + huevo cocido + té suave',
+        `Avena suave cocida en agua${noLact ? '' : ' o leche si se tolera'} + plátano`,
+        ...(noLact ? [] : ['Yogur natural sin azúcar + fruta bien tolerada'])
+      ],
+      almuerzo:[
+        `Arroz blanco con ${proteinAlmuerzo3} y una verdura cocida`,
+        'Sopa de verduras con fideos finos + proteína suave',
+        'Un plato más parecido a tu alimentación habitual, porción moderada'
+      ],
+      cena:[
+        'Versión liviana de lo elegido en el almuerzo',
+        'Arroz blanco con una verdura cocida',
+        'Porción chica de comida habitual, sin frituras ni picante'
+      ]
+    }
+  };
+  return sets[day][meal] || [];
+}
+
 function renderDays(){
-  const proteinLabel = state.vegetariano ? 'lentejas coladas o tofu al vapor' : 'pollo hervido desmenuzado';
-  const dairyLine = state.lactosa ? '' : `<div class="meal-row"><div class="meal-time">Opcional</div><div class="meal-items">Un poco de yogur natural sin azúcar, si se tolera bien.</div></div>`;
+  const notesTop = {
+    1:'💧 Además de lo que elijas abajo, mantén sorbos frecuentes de SRO durante todo el día. No es necesario ayunar si hay apetito.'
+  };
+  const notesBottom = {
+    1:'🚫 Evita por ahora: frituras, lácteos con lactosa, café, alcohol y bebidas azucaradas.',
+    3:'Si las deposiciones ya son firmes, sigue sumando variedad de a poco y observa cómo responde tu cuerpo. Evita todavía frituras, picante, alcohol y exceso de café.'
+  };
 
-  document.getElementById('meals-1').innerHTML = `
-    <div class="meal-row"><div class="meal-time">Todo el día</div><div class="meal-items">Sorbos frecuentes de suero de rehidratación oral (SRO) o agua de arroz.</div></div>
-    <div class="meal-row"><div class="meal-time">Si hay apetito</div><div class="meal-items">No hace falta ayunar: caldo colado tibio, sin grasa, o arroz blanco en porciones pequeñas.</div></div>
-    <div class="meal-row"><div class="meal-time">Evitar</div><div class="meal-items">Grasas, lácteos con lactosa, café, alcohol y bebidas azucaradas.</div></div>
-  `;
+  [1,2,3].forEach(day=>{
+    const meals = day===2 ? ['desayuno','almuerzo','colacion','cena'] : ['desayuno','almuerzo','cena'];
+    let html = '';
+    if(notesTop[day]) html += `<p class="meal-note">${notesTop[day]}</p>`;
+    meals.forEach(meal=>{
+      const opts = mealOptionSet(day, meal);
+      if(menuChoices[day][meal] && !opts.includes(menuChoices[day][meal])){
+        menuChoices[day][meal] = null; // preference change invalidated the previous pick
+      }
+      html += `<div class="meal-slot">
+        <span class="meal-slot-label">${mealLabels[meal]}</span>
+        <div class="meal-options" data-day="${day}" data-meal="${meal}">
+          ${opts.map(o=>`<button type="button" class="meal-option${menuChoices[day][meal]===o?' selected':''}" data-value="${o.replace(/"/g,'&quot;')}">${o}</button>`).join('')}
+        </div>
+      </div>`;
+    });
+    if(notesBottom[day]) html += `<p class="meal-note">${notesBottom[day]}</p>`;
+    document.getElementById('meals-'+day).innerHTML = html;
+  });
+}
 
-  document.getElementById('meals-2').innerHTML = `
-    <div class="meal-row"><div class="meal-time">Desayuno</div><div class="meal-items">Pan tostado sin mantequilla + té suave, o arroz blanco con un poco de caldo.</div></div>
-    <div class="meal-row"><div class="meal-time">Almuerzo</div><div class="meal-items">Arroz blanco, papa o zanahoria cocida, y ${proteinLabel}.</div></div>
-    <div class="meal-row"><div class="meal-time">Media tarde</div><div class="meal-items">Plátano maduro o manzana pelada/rallada.</div></div>
-    <div class="meal-row"><div class="meal-time">Cena</div><div class="meal-items">Versión liviana del almuerzo, en porción pequeña.</div></div>
-    ${dairyLine}
-  `;
+document.addEventListener('click', (e)=>{
+  const btn = e.target.closest('.meal-option');
+  if(!btn) return;
+  const group = btn.parentElement;
+  const day = group.dataset.day;
+  const meal = group.dataset.meal;
+  const value = btn.dataset.value;
+  menuChoices[day][meal] = (menuChoices[day][meal] === value) ? null : value;
+  group.querySelectorAll('.meal-option').forEach(b=>{
+    b.classList.toggle('selected', b.dataset.value === menuChoices[day][meal]);
+  });
+  renderMenuSummary();
+});
 
-  document.getElementById('meals-3').innerHTML = `
-    <div class="meal-row"><div class="meal-time">Guía general</div><div class="meal-items">Si las deposiciones ya son más firmes, no hay razón para seguir restringiendo: vuelve gradualmente a tu dieta habitual.</div></div>
-    <div class="meal-row"><div class="meal-time">Ir probando</div><div class="meal-items">Suma variedad de a poco y observa cómo responde el cuerpo con cada alimento nuevo.</div></div>
-    <div class="meal-row"><div class="meal-time">Seguir evitando</div><div class="meal-items">Frituras, picante, alcohol, café y ultraprocesados, hasta sentirte completamente recuperado/a.</div></div>
-  `;
+function renderMenuSummary(){
+  const box = document.getElementById('menuSummaryBody');
+  if(!box) return;
+  let html = '';
+  [1,2,3].forEach(day=>{
+    const meals = day===2 ? ['desayuno','almuerzo','colacion','cena'] : ['desayuno','almuerzo','cena'];
+    html += `<div class="summary-day"><h4>${dayTitles[day]}</h4>`;
+    meals.forEach(meal=>{
+      const val = menuChoices[day][meal];
+      html += `<div class="summary-row"><div class="sr-label">${mealLabels[meal]}</div><div class="sr-value${val?'':' empty'}">${val || 'Aún no elegido'}</div></div>`;
+    });
+    html += `</div>`;
+  });
+  box.innerHTML = html;
+}
+
+const copyMenuBtn = document.getElementById('copyMenuBtn');
+if(copyMenuBtn){
+  copyMenuBtn.addEventListener('click', ()=>{
+    let text = 'Mi menú para diarrea — primeros 3 días\n\n';
+    [1,2,3].forEach(day=>{
+      const meals = day===2 ? ['desayuno','almuerzo','colacion','cena'] : ['desayuno','almuerzo','cena'];
+      text += dayTitles[day] + '\n';
+      meals.forEach(meal=>{
+        text += `  ${mealLabels[meal]}: ${menuChoices[day][meal] || '(sin elegir)'}\n`;
+      });
+      text += '\n';
+    });
+    navigator.clipboard.writeText(text).then(()=>{
+      const fb = document.getElementById('copyFeedback');
+      fb.classList.add('show');
+      setTimeout(()=>fb.classList.remove('show'), 2000);
+    }).catch(()=>{
+      alert('No se pudo copiar automáticamente. Selecciona y copia el texto manualmente.');
+    });
+  });
 }
 
 function renderMedicalNote(){
@@ -974,6 +1187,7 @@ function render(){
   renderDays();
   renderMedicalNote();
   renderFilterSummary();
+  if(typeof renderMenuSummary === 'function') renderMenuSummary();
   if(typeof renderMenu === 'function') renderMenu();
 }
 
