@@ -258,6 +258,21 @@
     border-top:1px solid rgba(0,0,0,0.06);
   }
   .food-col li:first-of-type{border-top:none;}
+  .food-cat{margin-bottom:16px;}
+  .food-cat:last-child{margin-bottom:0;}
+  .food-cat h4{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.7rem;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    margin:0 0 4px;
+  }
+  .food-col.safe .food-cat h4{color:var(--primary-deep);}
+  .food-col.avoid .food-cat h4{color:var(--avoid);}
+  .food-cat ul{margin:0;padding:0;list-style:none;}
+  .food-cat li{font-size:.9rem;padding:5px 0;border-top:1px solid rgba(0,0,0,0.06);}
+  .food-cat li:first-child{border-top:none;}
+  .regimen-note{font-size:.85rem;color:var(--ink-soft);margin:0 0 20px;font-style:italic;}
 
   /* HYDRATION */
   .hydration-grid{
@@ -578,10 +593,9 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">Guía de alimentación · Diarrea aguda</span>
-      <h1>Qué comer, qué evitar y cómo avanzar según tu tolerancia</h1>
-      <p class="lead">Marca tus preferencias abajo y arma un plan de comidas ajustado a tu situación, con las porciones que sí conviene comer y las que es mejor dejar para después.</p>
-      <span class="evidence-tag">✓ Orientación alineada a guías clínicas actuales</span>
+      <span class="eyebrow">Régimen Sin Residuos</span>
+      <h1>Arma tu menú dentro de los alimentos permitidos en tu régimen</h1>
+      <p class="lead">Marca tu situación abajo y arma un menú de ejemplo usando solamente los alimentos que permite tu pauta de régimen sin residuos, indicada por tu médico o nutricionista.</p>
       <div class="hero-meta">
         <span class="read-time">⏱ 3 min de lectura</span>
         <a href="#preferencias" class="cta-btn">👇 Comienza aquí</a>
@@ -623,7 +637,7 @@
 
   <div class="alert">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 16.5h.01M10.29 3.86l-8.18 14.18A2 2 0 0 0 3.82 21h16.36a2 2 0 0 0 1.71-3.03L13.71 3.86a2 2 0 0 0-3.42 0Z" stroke="#B0472F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <p><strong>Antes de seguir esta guía:</strong> consulta a un médico si hay sangre en las deposiciones, fiebre alta, dolor abdominal intenso, signos de deshidratación (boca muy seca, mareos, orina escasa), si los síntomas duran más de 3 días en un adulto, o si se trata de un lactante, niño pequeño, adulto mayor, embarazada o persona inmunosuprimida. Esta página entrega orientación general, no reemplaza una evaluación médica.</p>
+    <p><strong>Este régimen debe seguirse por el tiempo indicado por tu médico o nutricionista</strong>, consumiendo solamente los alimentos que aparecen en la pauta. Consulta a un profesional de salud si hay sangre en las deposiciones, fiebre alta, dolor abdominal intenso, signos de deshidratación, si los síntomas duran más de 3 días en un adulto, o si se trata de un lactante, niño pequeño, adulto mayor, embarazada o persona inmunosuprimida. Esta página es una herramienta de apoyo para organizar tus comidas dentro del régimen indicado, no reemplaza la indicación profesional.</p>
   </div>
 </header>
 
@@ -684,25 +698,25 @@
 <section id="evidencia">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Por qué esta guía dice esto</span>
-      <h2>Lo que respalda la evidencia actual</h2>
-      <p>Las recomendaciones para diarrea aguda han cambiado en los últimos años. Esto es lo que sostienen las guías clínicas actuales (medicina familiar y salud pública), en términos simples.</p>
+      <span class="eyebrow">Sobre este régimen</span>
+      <h2>¿Por qué se restringen estos alimentos?</h2>
+      <p>Un régimen sin residuos elimina temporalmente los alimentos ricos en fibra (frutas, verduras, integrales) y los irritantes de la mucosa intestinal (condimentos y frituras), priorizando alimentos cocidos y bajos en grasa.</p>
     </div>
     <div class="evidence-grid">
       <div class="evidence-card">
         <span class="ev-num">01</span>
-        <h4>La hidratación es la prioridad real</h4>
-        <p>Reponer líquidos y sales es la intervención con más respaldo. Suele importar más que cualquier alimento sólido, especialmente en las primeras horas.</p>
+        <h4>Bajo en fibra ("sin residuos")</h4>
+        <p>Reducir la fibra disminuye el volumen y la frecuencia de las deposiciones, dándole descanso al intestino mientras se recupera.</p>
       </div>
       <div class="evidence-card">
         <span class="ev-num">02</span>
-        <h4>No es necesario ayunar</h4>
-        <p>La evidencia actual no respalda dejar de comer por completo. Se recomienda seguir una alimentación habitual y adecuada a la edad apenas el apetito lo permita, en porciones pequeñas y frecuentes.</p>
+        <h4>Sin grasa ni irritantes</h4>
+        <p>Frituras, grasas, ajo, ají, pimienta y otros condimentos fuertes pueden irritar la mucosa intestinal y empeorar los síntomas: por eso se cocina sin ellos.</p>
       </div>
       <div class="evidence-card">
         <span class="ev-num">03</span>
-        <h4>No hay una "dieta mágica" única</h4>
-        <p>No existe evidencia sólida de que una dieta restrictiva específica acelere la recuperación. Sí hay consenso en evitar temporalmente lo que irrita el intestino: grasas, picante, azúcar en exceso, alcohol y cafeína.</p>
+        <h4>Frutas y verduras: solo con mejoría</h4>
+        <p>Se reincorporan recién cuando el cuadro diarreico mejora, y solo las indicadas en la pauta: zanahoria, papas, zapallo, betarraga, manzana, membrillo y plátano.</p>
       </div>
     </div>
   </div>
@@ -736,9 +750,16 @@
         <input type="checkbox">
         <span><span class="label">Embarazo</span><span class="sub">Requiere control médico</span></span>
       </label>
+      <label class="pref-card" data-pref="mejora">
+        <input type="checkbox">
+        <span><span class="label">Mi cuadro diarreico ya mejoró</span><span class="sub">Habilita frutas y verduras permitidas</span></span>
+      </label>
     </div>
     <div class="note-box" id="medicalNote">
-      Marcaste una condición que conviene supervisar con un profesional de salud (niño pequeño, adulto mayor o embarazo). Puedes usar esta guía como apoyo general, pero prioriza el control médico, especialmente si hay signos de deshidratación.
+      Marcaste una condición que conviene supervisar con un profesional de salud (niño pequeño, adulto mayor o embarazo). Puedes usar esta guía como apoyo para organizar tus comidas, pero prioriza el control médico, especialmente si hay signos de deshidratación.
+    </div>
+    <div class="note-box" id="vegNote">
+      Este régimen deja muy pocas proteínas sin carne: solo clara de huevo y quesillo o queso fresco (no incluye legumbres ni frutos secos, porque aportan mucha fibra). Conversa con tu nutricionista si necesitas ajustar el régimen a una alimentación vegetariana.
     </div>
   </div>
 </section>
@@ -747,36 +768,37 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Paso 2</span>
-      <h2>Arma tu menú de los primeros 3 días</h2>
-      <p>La reintroducción de alimentos se guía por cómo te sientes, no por un calendario fijo, pero aquí tienes una referencia día a día. Toca la opción que prefieras en cada desayuno, almuerzo y cena para armar tu propio menú.</p>
+      <h2>Arma tu menú dentro del régimen</h2>
+      <p>Toca la opción que prefieras en cada uno de los 6 tiempos de comida para armar tu menú. Te damos 3 días de ejemplo con variedad, para que no comas siempre lo mismo — todas las opciones respetan la pauta.</p>
     </div>
 
     <div class="filter-summary" id="filterSummary"></div>
+    <p class="regimen-note">* Recuerda: los alimentos no mencionados en tu pauta no pueden incluirse en el régimen. Si tu cuadro ya mejoró, actívalo arriba en "Paso 1" para desbloquear frutas y verduras.</p>
 
     <div class="day-tabs">
-      <button class="day-tab active" data-day="1">DÍA 1 · Hidratación</button>
-      <button class="day-tab" data-day="2">DÍA 2 · Comidas suaves</button>
-      <button class="day-tab" data-day="3">DÍA 3 · Reintroducción</button>
+      <button class="day-tab active" data-day="1">DÍA 1</button>
+      <button class="day-tab" data-day="2">DÍA 2</button>
+      <button class="day-tab" data-day="3">DÍA 3</button>
     </div>
 
     <div class="day-panel active" id="panel-1">
       <div class="day-card">
-        <h3>Foco: reponer líquidos y sales</h3>
-        <p class="day-desc">Mientras las deposiciones sean muy frecuentes o líquidas, prioriza el líquido en sorbos constantes. Si tienes apetito, no es necesario esperar para comer algo suave.</p>
+        <h3>Menú de ejemplo — Día 1</h3>
+        <p class="day-desc">Los 6 tiempos de comida de tu régimen, con opciones para elegir en cada uno.</p>
         <div id="meals-1"></div>
       </div>
     </div>
     <div class="day-panel" id="panel-2">
       <div class="day-card">
-        <h3>Foco: alimentos suaves y de fácil digestión</h3>
-        <p class="day-desc">Se incorporan alimentos sólidos suaves, bajos en grasa, en porciones pequeñas y varias veces al día, según lo que el cuerpo vaya tolerando.</p>
+        <h3>Menú de ejemplo — Día 2</h3>
+        <p class="day-desc">Otra variante dentro de lo permitido, para no repetir siempre lo mismo.</p>
         <div id="meals-2"></div>
       </div>
     </div>
     <div class="day-panel" id="panel-3">
       <div class="day-card">
-        <h3>Foco: volver a la alimentación habitual</h3>
-        <p class="day-desc">Si las deposiciones ya son más firmes, no hay razón para seguir restringiendo. Vuelve gradualmente a tu dieta normal, prestando atención a cómo responde el cuerpo.</p>
+        <h3>Menú de ejemplo — Día 3</h3>
+        <p class="day-desc">Una tercera variante, siempre dentro de los alimentos de tu pauta.</p>
         <div id="meals-3"></div>
       </div>
     </div>
@@ -796,18 +818,18 @@
 <section id="alimentos">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Referencia rápida</span>
-      <h2>Qué comer y qué evitar</h2>
-      <p>Lista general para consultar en cualquier momento, ya ajustada a tus preferencias.</p>
+      <span class="eyebrow">Tu pauta, categoría por categoría</span>
+      <h2>Qué está permitido y qué está prohibido</h2>
+      <p>Lista completa de tu régimen sin residuos para consultar en cualquier momento, ya ajustada a tu situación.</p>
     </div>
     <div class="food-cols">
       <div class="food-col safe">
-        <h3>✓ Recomendado</h3>
-        <ul id="listSafe"></ul>
+        <h3>✓ Permitido</h3>
+        <div id="listSafe"></div>
       </div>
       <div class="food-col avoid">
-        <h3>✕ Evitar por ahora</h3>
-        <ul id="listAvoid"></ul>
+        <h3>✕ Prohibido</h3>
+        <div id="listAvoid"></div>
       </div>
     </div>
   </div>
@@ -869,20 +891,26 @@
     <div class="section-head">
       <span class="eyebrow">Con lo que tienes a mano</span>
       <h2>Genera tu menú de hoy</h2>
-      <p>Marca lo que tienes en casa y te sugerimos combinaciones suaves y fáciles de digerir, ya ajustadas a tus preferencias.</p>
+      <p>Marca lo que tienes en casa y te sugerimos combinaciones permitidas por tu régimen. Las que llevan fruta o verdura solo aparecen si ya activaste "Mi cuadro diarreico ya mejoró".</p>
     </div>
     <div class="home-grid" id="homeGrid">
       <label class="home-item" data-food="arroz"><input type="checkbox">🍚 Arroz</label>
-      <label class="home-item" data-food="pollo"><input type="checkbox">🍗 Pollo</label>
-      <label class="home-item" data-food="platano"><input type="checkbox">🍌 Plátano</label>
-      <label class="home-item" data-food="manzana"><input type="checkbox">🍎 Manzana</label>
-      <label class="home-item" data-food="avena"><input type="checkbox">🥣 Avena</label>
-      <label class="home-item" data-food="huevo"><input type="checkbox">🥚 Huevo</label>
+      <label class="home-item" data-food="fideos"><input type="checkbox">🍜 Fideos finos</label>
+      <label class="home-item" data-food="semola"><input type="checkbox">🥣 Sémola</label>
+      <label class="home-item" data-food="papa"><input type="checkbox">🥔 Papas</label>
+      <label class="home-item" data-food="pan"><input type="checkbox">🍞 Pan molde blanco</label>
+      <label class="home-item" data-food="galletas"><input type="checkbox">🍘 Galletas de agua</label>
+      <label class="home-item" data-food="quesillo"><input type="checkbox">🧀 Quesillo</label>
+      <label class="home-item" data-food="pollo"><input type="checkbox">🍗 Pollo o pavo</label>
+      <label class="home-item" data-food="posta"><input type="checkbox">🥩 Posta rosada/negra</label>
+      <label class="home-item" data-food="pescado"><input type="checkbox">🐟 Pescado blanco</label>
+      <label class="home-item" data-food="clara"><input type="checkbox">🥚 Clara de huevo</label>
+      <label class="home-item" data-food="jalea"><input type="checkbox">🍮 Jalea</label>
       <label class="home-item" data-food="zanahoria"><input type="checkbox">🥕 Zanahoria</label>
-      <label class="home-item" data-food="papa"><input type="checkbox">🥔 Papa</label>
-      <label class="home-item" data-food="pan"><input type="checkbox">🍞 Pan tostado</label>
-      <label class="home-item" data-food="caldo"><input type="checkbox">🍲 Caldo</label>
-      <label class="home-item" data-food="yogur"><input type="checkbox">🥄 Yogur natural</label>
+      <label class="home-item" data-food="zapallo"><input type="checkbox">🎃 Zapallo</label>
+      <label class="home-item" data-food="betarraga"><input type="checkbox">🟣 Betarraga</label>
+      <label class="home-item" data-food="manzana"><input type="checkbox">🍎 Manzana</label>
+      <label class="home-item" data-food="platano"><input type="checkbox">🍌 Plátano</label>
     </div>
     <div class="menu-result" id="menuResult"></div>
   </div>
@@ -896,24 +924,28 @@
     </div>
     <div class="faq-list">
       <details class="faq-item">
-        <summary>¿Puedo tomar bebidas de cola?</summary>
-        <div class="faq-a">No se recomienda. Tienen demasiada azúcar y poca sal, lo que puede empeorar la diarrea. El SRO de farmacia está formulado específicamente para reponer líquidos y sales.</div>
+        <summary>¿Cuánto tiempo debo seguir este régimen?</summary>
+        <div class="faq-a">El tiempo que te haya indicado tu médico o nutricionista. No lo extiendas ni lo interrumpas por tu cuenta: es una pauta acotada, no una forma de comer permanente.</div>
       </details>
       <details class="faq-item">
-        <summary>¿Sirve el té para la diarrea?</summary>
-        <div class="faq-a">El té suave (manzanilla, jengibre) es bien tolerado y puede ayudar a que te sientas mejor, pero no reemplaza al SRO como fuente principal de hidratación.</div>
+        <summary>¿Por qué no puedo comer legumbres si son sanas?</summary>
+        <div class="faq-a">Las legumbres (porotos, lentejas, garbanzos) aportan mucha fibra, justamente lo que este régimen busca reducir temporalmente para darle descanso al intestino.</div>
       </details>
       <details class="faq-item">
-        <summary>¿Cuándo puedo volver a comer normal?</summary>
-        <div class="faq-a">Cuando las deposiciones sean más firmes y el apetito vuelva, puedes retomar tu alimentación habitual de forma gradual, prestando atención a cómo responde el cuerpo con cada alimento nuevo.</div>
+        <summary>¿Cuándo puedo agregar frutas y verduras?</summary>
+        <div class="faq-a">Solo cuando tu cuadro diarreico haya mejorado, y únicamente las indicadas: zanahoria, papas, zapallo y betarraga cocidas; manzana cocida o rallada, membrillo y plátano molido sin pepas.</div>
       </details>
       <details class="faq-item">
-        <summary>¿Es necesario dejar de comer mientras dura la diarrea?</summary>
-        <div class="faq-a">No. La evidencia actual no respalda el ayuno. Se recomienda seguir comiendo en porciones pequeñas y frecuentes, apenas el apetito lo permita.</div>
+        <summary>¿Puedo tomar café o bebidas gaseosas?</summary>
+        <div class="faq-a">No, ambos están explícitamente prohibidos en este régimen. Las bebidas permitidas son agua hervida, agua mineral sin gas, té simple, infusiones de hierbas y agua de frutas cocidas.</div>
       </details>
       <details class="faq-item">
-        <summary>¿Los antibióticos siempre son necesarios?</summary>
-        <div class="faq-a">No. La mayoría de las diarreas agudas son de origen viral y se resuelven solas con buena hidratación. El uso de antibióticos debe ser evaluado por un profesional de salud.</div>
+        <summary>¿Puedo comer pan o arroz integral?</summary>
+        <div class="faq-a">No. Este régimen solo permite las versiones blancas/refinadas (pan molde blanco, arroz blanco): lo integral aporta la fibra que se busca evitar.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué pasa con un alimento que no aparece en la pauta?</summary>
+        <div class="faq-a">Si no está mencionado en tu régimen, no debe incluirse, aunque parezca un alimento saludable en otro contexto. Ante cualquier duda, consulta con tu médico o nutricionista.</div>
       </details>
     </div>
   </div>
@@ -921,26 +953,20 @@
 
 <footer>
   <div class="wrap">
-    <p style="margin:0 0 4px;">Esta guía entrega orientación alimentaria general para diarrea aguda leve, alineada con guías clínicas actuales de medicina familiar y salud pública, y no reemplaza una consulta médica. Ante síntomas severos, prolongados o en poblaciones de riesgo, consulta a un profesional de salud.</p>
-    <span class="eyebrow" style="display:block;margin-top:18px;">Basado en las guías de</span>
-    <ul class="footer-refs">
-      <li><a href="https://www.who.int/" target="_blank" rel="noopener">OMS</a></li>
-      <li><a href="https://www.espghan.org/" target="_blank" rel="noopener">ESPGHAN</a></li>
-      <li><a href="https://www.nice.org.uk/" target="_blank" rel="noopener">NICE</a></li>
-      <li><a href="https://gi.org/" target="_blank" rel="noopener">ACG</a></li>
-    </ul>
-    <span class="footer-updated">Actualizado: agosto de 2026</span>
+    <p style="margin:0 0 4px;">Esta página organiza tus comidas dentro de una pauta de Régimen Sin Residuos indicada por un profesional de salud, y no reemplaza esa indicación. Debe seguirse por el tiempo y con los ajustes que indique tu médico o nutricionista tratante. Ante cualquier duda sobre un alimento, consulta con tu profesional de salud.</p>
+    <span class="footer-updated" style="display:block;margin-top:18px;">Actualizado: agosto de 2026</span>
   </div>
 </footer>
 
 <script>
-const state = {vegetariano:false, lactosa:false, ninio:false, mayor:false, embarazo:false};
+const state = {vegetariano:false, lactosa:false, ninio:false, mayor:false, embarazo:false, mejora:false};
 const prefLabels = {
   vegetariano:'Vegetariano/a',
   lactosa:'Sin lactosa',
   ninio:'Para un niño/a',
   mayor:'Adulto mayor',
-  embarazo:'Embarazo'
+  embarazo:'Embarazo',
+  mejora:'Cuadro ya mejoró'
 };
 
 // ---- Preference cards ----
@@ -965,120 +991,190 @@ document.querySelectorAll('.day-tab').forEach(tab=>{
   });
 });
 
-// ---- Food data ----
-function proteinSafe(){
+// ---- Food data: exact categories from the "Régimen Sin Residuos" pauta ----
+function proteinCategoryItems(){
   return state.vegetariano
-    ? ['🌱 Lentejas bien cocidas y coladas', '🌱 Tofu al vapor', '🥚 Huevo cocido (sin freír)']
-    : ['🍗 Pollo hervido o al vapor, sin piel', '🐟 Pescado blanco al vapor', '🥚 Huevo cocido (sin freír)'];
+    ? ['Clara de huevo']
+    : [
+        'Carne de vacuno sin grasa: posta rosada, posta negra',
+        'Aves sin cuero: pollo, pavo',
+        'Pescado fresco sin grasa: congrio, reineta, merluza, tollo',
+        'Jurel o atún al agua (según tolerancia)',
+        'Clara de huevo'
+      ];
 }
-function dairySafe(){
-  return state.lactosa ? [] : ['🥄 Yogur natural sin azúcar (con cultivos vivos)'];
-}
-function dairyAvoid(){
-  return ['🥛 Leche entera', '🧀 Quesos maduros', '🍨 Helados y postres cremosos'].concat(state.lactosa ? ['🚫 Cualquier lácteo con lactosa'] : []);
+function dairyCategoryItems(){
+  return state.lactosa ? [] : ['Sólo quesillo o queso fresco'];
 }
 
 function buildLists(){
   const safe = [
-    '🍚 Agua de arroz, arroz blanco bien cocido',
-    '🍌 Plátano maduro',
-    '🍎 Manzana pelada, rallada o al horno (sin cáscara)',
-    '🍞 Pan tostado o galletas de agua, sin mantequilla',
-    '🥕 Zanahoria y papa cocidas, en puré o al vapor',
-    '🍲 Caldo colado (pollo o verduras), sin grasa',
-    '🍵 Té suave (manzanilla, jengibre), sin azúcar en exceso',
-    ...proteinSafe(),
-    ...dairySafe()
+    {cat:'Cereales', items:['Arroz, fideos finos, sémola, maicena, chuño, nutrina, papas']},
+    {cat:'Pan y galletas', items:['Pan molde blanco, marraqueta tostada, galletas de agua, soda, chuño, dulces sin crema, grisines']},
+    {cat:'Lácteos', items: dairyCategoryItems()},
+    {cat:'Carnes / Aves / Pescados / Huevo', items: proteinCategoryItems()},
+    {cat:'Aceites', items:['Aceite crudo 100% vegetal']},
+    {cat:'Azúcares', items:['Azúcar, miel, mermeladas sin pepas (pasadas por cedazo), jaleas, jugos en polvo']},
+    {cat:'Bebidas', items:['Agua hervida, agua mineral sin gas, té simple, infusiones de hierbas, agua de frutas cocidas']},
+    {cat:'Aromatizantes', items:['Anís, canela, hierbas, cáscara de limón o naranja']},
+    {cat:'Condimentos', items:['Sal, jugo de limón']}
   ];
+  if(state.mejora){
+    safe.push({cat:'Verduras / Frutas (cuadro ya mejorado)', items:[
+      'Verduras: zanahoria, papas, zapallo, betarraga',
+      'Frutas: manzana (cocida o rallada), membrillo, plátano (molido sin pepas)'
+    ]});
+  } else {
+    safe.push({cat:'Verduras / Frutas', items:['Solo se incorporan cuando tu cuadro diarreico haya mejorado — actívalo en "Paso 1"']});
+  }
+
   const avoid = [
-    '🚫 Frituras y comida grasosa en general',
-    '🌶 Comida picante o muy condimentada',
-    '☕ Café, alcohol y bebidas con cafeína',
-    '🥤 Bebidas gaseosas y jugos muy azucarados',
-    '🥗 Legumbres con cáscara, verduras crudas y de hoja',
-    '🍊 Frutas cítricas o muy ácidas',
-    '🍟 Snacks ultraprocesados y comida rápida',
-    ...dairyAvoid()
+    {cat:'Cereales / pan', items:['Arroz integral, fideos integrales, pan integral']},
+    {cat:'Verduras', items:['Todas aquellas no mencionadas']},
+    {cat:'Frutas', items:['Todas aquellas no mencionadas']},
+    {cat:'Lácteos', items:['Leche, yogurt alto en grasa, quesos maduros, cremas de leche']},
+    {cat:'Legumbres', items:['Porotos, lentejas, garbanzos']},
+    {cat:'Carnes altas en grasa', items:['Vacuno, cordero, cerdo, vísceras, embutidos (salame, choricillos, longanizas, vienesas, paté), pescados y mariscos grasos, pato, ganso, gallina, yema de huevo']},
+    {cat:'Grasas', items:['Crema, grasa animal, manteca, mantequilla, mayonesa, frituras en general']},
+    {cat:'Alimentos ricos en lípidos', items:['Aceituna, palta, frutos secos: maní, almendra, nuez, avellanas, castañas']},
+    {cat:'Otros', items:[
+      'Productos de pastelería',
+      'Bebidas gaseosas, café, chocolate, pasteles',
+      'Condimentos: ajo, ají, comino, pimienta, mostaza, ketchup',
+      'Caldos concentrados, sopas de sobre'
+    ]}
   ];
   return {safe, avoid};
 }
 
 function renderFoodLists(){
   const {safe, avoid} = buildLists();
-  document.getElementById('listSafe').innerHTML = safe.map(f=>`<li>${f}</li>`).join('');
-  document.getElementById('listAvoid').innerHTML = avoid.map(f=>`<li>${f}</li>`).join('');
+  const block = c => c.items.length ? `<div class="food-cat"><h4>${c.cat}</h4><ul>${c.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>` : '';
+  document.getElementById('listSafe').innerHTML = safe.map(block).join('');
+  document.getElementById('listAvoid').innerHTML = avoid.map(block).join('');
 }
 
-// ---- 3-day menu builder: options per meal, adjusted to preferences ----
+function renderVegNote(){
+  document.getElementById('vegNote').classList.toggle('show', state.vegetariano);
+}
+
+// ---- 3-day menu builder: same 6 meal times as the pauta, only foods it allows ----
+const MEAL_KEYS = ['desayuno','colacionAM','almuerzo','once','cena','colacionPM'];
 const menuChoices = {
-  1:{desayuno:null, almuerzo:null, cena:null},
-  2:{desayuno:null, almuerzo:null, colacion:null, cena:null},
-  3:{desayuno:null, almuerzo:null, cena:null}
+  1:{desayuno:null, colacionAM:null, almuerzo:null, once:null, cena:null, colacionPM:null},
+  2:{desayuno:null, colacionAM:null, almuerzo:null, once:null, cena:null, colacionPM:null},
+  3:{desayuno:null, colacionAM:null, almuerzo:null, once:null, cena:null, colacionPM:null}
 };
-const mealLabels = {desayuno:'Desayuno', almuerzo:'Almuerzo', colacion:'Colación', cena:'Cena'};
-const dayTitles = {1:'Día 1 · Hidratación', 2:'Día 2 · Comidas suaves', 3:'Día 3 · Reintroducción'};
+const mealLabels = {
+  desayuno:'Desayuno · 8:00–9:00',
+  colacionAM:'Colación · 10:00–11:00',
+  almuerzo:'Almuerzo · 13:00–14:00',
+  once:'Once · 16:00–17:00',
+  cena:'Cena · 19:00–20:00',
+  colacionPM:'Colación · 21:00–22:00'
+};
+const dayTitles = {1:'Día 1', 2:'Día 2', 3:'Día 3'};
 
 function mealOptionSet(day, meal){
   const veg = state.vegetariano;
-  const noLact = state.lactosa;
-  const proteinAlmuerzo2 = veg ? 'lentejas bien cocidas y coladas' : 'pollo hervido o al vapor, desmenuzado y sin piel';
-  const proteinAlmuerzo2b = veg ? 'Tofu al vapor' : 'Pescado blanco al vapor';
-  const proteinAlmuerzo3 = veg ? 'legumbres bien cocidas y coladas' : 'pollo o pescado suave';
+  const mejora = state.mejora;
+  // protein swaps: this régimen has no plant-protein alternative, only clara de huevo / quesillo
+  const jamon = veg ? 'quesillo' : 'jamón de pavo cocido';
+  const p1 = veg ? 'clara de huevo revuelta' : 'pollo a la plancha';
+  const p2 = veg ? 'quesillo' : 'posta rosada desmenuzada';
+  const p3 = veg ? 'clara de huevo' : 'posta negra a la plancha';
+  const p4 = veg ? 'quesillo' : 'pescado (merluza) al vapor';
+  const p5 = veg ? 'clara de huevo' : 'pollo desmenuzado';
+  const p6 = veg ? 'clara de huevo' : 'pescado (congrio) al vapor';
+  const p7 = veg ? 'quesillo' : 'posta rosada a la plancha';
+  const p8 = veg ? 'clara de huevo' : 'pavo a la plancha';
 
   const sets = {
     1:{
       desayuno:[
-        'Agua de arroz tibia + galletas de agua, si hay apetito',
-        'Té suave (manzanilla o jengibre) + tostada sin mantequilla',
-        'Solo sorbos de SRO, sin sólidos por ahora'
+        `Té simple con azúcar o endulzante + 2 rebanadas de pan molde blanco + ${jamon}`,
+        'Té simple + pan tostado con quesillo'
+      ],
+      colacionAM:[
+        '1 jalea',
+        '3 galletas de agua',
+        ...(mejora ? ['Manzana rallada'] : [])
       ],
       almuerzo:[
-        'Caldo colado tibio, sin grasa',
-        'Arroz blanco bien cocido, porción pequeña',
-        'Puré de papa o zanahoria, sin mantequilla'
+        `Consomé de ave + arroz blanco con ${p1} + helado de piña al agua`,
+        `Sopa de sémola + fideos finos con ${p2} + jalea`,
+        ...(mejora ? [`Consomé de ave + arroz blanco con ${p1} y zanahoria cocida de acompañamiento`] : [])
+      ],
+      once:[
+        'Té con chuño y azúcar o endulzante + 3 galletas de agua con quesillo',
+        'Infusión de hierbas + pan tostado con quesillo'
       ],
       cena:[
-        'Repetir caldo colado, porción pequeña',
-        'Un poco de arroz blanco, si el cuerpo lo tolera',
-        'Solo SRO, si no hay apetito'
+        'Sopa de sémola + fideos cabello con clara de huevo + jalea con merengue',
+        `Consomé de ave + arroz blanco con ${p4} + jalea`
+      ],
+      colacionPM:[
+        'Té simple',
+        '1 jalea',
+        ...(mejora ? ['Manzana rallada'] : [])
       ]
     },
     2:{
       desayuno:[
-        'Pan tostado sin mantequilla + té suave',
-        'Arroz blanco con un poco de caldo colado',
-        ...(noLact ? [] : ['Yogur natural sin azúcar + plátano maduro'])
+        'Té simple + galletas de agua con quesillo',
+        `Infusión de hierbas + 2 rebanadas de pan molde blanco + ${jamon}`
+      ],
+      colacionAM:[
+        '1 jalea',
+        'Té simple con azúcar',
+        ...(mejora ? ['Membrillo cocido'] : [])
       ],
       almuerzo:[
-        `Arroz blanco con ${proteinAlmuerzo2}`,
-        'Puré de papa y zanahoria + huevo cocido',
-        `${proteinAlmuerzo2b} con arroz blanco`
+        `Sopa de sémola + arroz blanco con ${p3}`,
+        `Consomé de ave + fideos finos con ${p4} + jalea`,
+        ...(mejora ? [`Sopa de sémola + arroz blanco con ${p3} y zapallo cocido de acompañamiento`] : [])
       ],
-      colacion:[
-        'Plátano maduro',
-        'Manzana pelada, rallada o al horno'
+      once:[
+        'Té c/ chuño con azúcar o endulzante + 3 galletas de agua con quesillo',
+        'Té simple + pan tostado con mermelada sin pepas'
       ],
       cena:[
-        'Versión liviana de lo elegido en el almuerzo',
-        'Arroz blanco con puré de papa o zanahoria',
-        'Caldo colado + pan tostado sin mantequilla'
+        `Consomé de ave + fideos cabello con ${p5} + jalea con merengue`,
+        'Sopa de sémola + arroz blanco con clara de huevo'
+      ],
+      colacionPM:[
+        '1 jalea',
+        'Té simple',
+        ...(mejora ? ['Plátano molido sin pepas'] : [])
       ]
     },
     3:{
       desayuno:[
-        'Pan tostado + huevo cocido + té suave',
-        `Avena suave cocida en agua${noLact ? '' : ' o leche si se tolera'} + plátano`,
-        ...(noLact ? [] : ['Yogur natural sin azúcar + fruta bien tolerada'])
+        'Té simple con azúcar o endulzante + pan tostado con quesillo',
+        `Infusión de hierbas + 2 rebanadas de pan molde blanco + ${jamon}`
+      ],
+      colacionAM:[
+        '3 galletas de agua',
+        '1 jalea',
+        ...(mejora ? ['Manzana cocida'] : [])
       ],
       almuerzo:[
-        `Arroz blanco con ${proteinAlmuerzo3} y una verdura cocida`,
-        'Sopa de verduras con fideos finos + proteína suave',
-        'Un plato más parecido a tu alimentación habitual, porción moderada'
+        `Consomé de ave + arroz blanco con ${p6}`,
+        `Sopa de fideos finos + ${p7} + helado de piña al agua`,
+        ...(mejora ? [`Consomé de ave + arroz blanco con ${p6} y betarraga cocida de acompañamiento`] : [])
+      ],
+      once:[
+        'Té simple + 3 galletas de agua con quesillo',
+        'Infusión de hierbas + pan tostado con mermelada sin pepas'
       ],
       cena:[
-        'Versión liviana de lo elegido en el almuerzo',
-        'Arroz blanco con una verdura cocida',
-        'Porción chica de comida habitual, sin frituras ni picante'
+        `Sopa de sémola + fideos cabello con ${p8} + jalea`,
+        'Consomé de ave + arroz blanco con clara de huevo + jalea con merengue'
+      ],
+      colacionPM:[
+        'Té simple',
+        '1 jalea',
+        ...(mejora ? ['Membrillo cocido'] : [])
       ]
     }
   };
@@ -1086,19 +1182,9 @@ function mealOptionSet(day, meal){
 }
 
 function renderDays(){
-  const notesTop = {
-    1:'💧 Además de lo que elijas abajo, mantén sorbos frecuentes de SRO durante todo el día. No es necesario ayunar si hay apetito.'
-  };
-  const notesBottom = {
-    1:'🚫 Evita por ahora: frituras, lácteos con lactosa, café, alcohol y bebidas azucaradas.',
-    3:'Si las deposiciones ya son firmes, sigue sumando variedad de a poco y observa cómo responde tu cuerpo. Evita todavía frituras, picante, alcohol y exceso de café.'
-  };
-
   [1,2,3].forEach(day=>{
-    const meals = day===2 ? ['desayuno','almuerzo','colacion','cena'] : ['desayuno','almuerzo','cena'];
     let html = '';
-    if(notesTop[day]) html += `<p class="meal-note">${notesTop[day]}</p>`;
-    meals.forEach(meal=>{
+    MEAL_KEYS.forEach(meal=>{
       const opts = mealOptionSet(day, meal);
       if(menuChoices[day][meal] && !opts.includes(menuChoices[day][meal])){
         menuChoices[day][meal] = null; // preference change invalidated the previous pick
@@ -1110,7 +1196,6 @@ function renderDays(){
         </div>
       </div>`;
     });
-    if(notesBottom[day]) html += `<p class="meal-note">${notesBottom[day]}</p>`;
     document.getElementById('meals-'+day).innerHTML = html;
   });
 }
@@ -1134,11 +1219,10 @@ function renderMenuSummary(){
   if(!box) return;
   let html = '';
   [1,2,3].forEach(day=>{
-    const meals = day===2 ? ['desayuno','almuerzo','colacion','cena'] : ['desayuno','almuerzo','cena'];
     html += `<div class="summary-day"><h4>${dayTitles[day]}</h4>`;
-    meals.forEach(meal=>{
+    MEAL_KEYS.forEach(meal=>{
       const val = menuChoices[day][meal];
-      html += `<div class="summary-row"><div class="sr-label">${mealLabels[meal]}</div><div class="sr-value${val?'':' empty'}">${val || 'Aún no elegido'}</div></div>`;
+      html += `<div class="summary-row"><div class="sr-label">${mealLabels[meal].split(' · ')[0]}</div><div class="sr-value${val?'':' empty'}">${val || 'Aún no elegido'}</div></div>`;
     });
     html += `</div>`;
   });
@@ -1148,11 +1232,10 @@ function renderMenuSummary(){
 const copyMenuBtn = document.getElementById('copyMenuBtn');
 if(copyMenuBtn){
   copyMenuBtn.addEventListener('click', ()=>{
-    let text = 'Mi menú para diarrea — primeros 3 días\n\n';
+    let text = 'Mi menú — Régimen Sin Residuos\n\n';
     [1,2,3].forEach(day=>{
-      const meals = day===2 ? ['desayuno','almuerzo','colacion','cena'] : ['desayuno','almuerzo','cena'];
       text += dayTitles[day] + '\n';
-      meals.forEach(meal=>{
+      MEAL_KEYS.forEach(meal=>{
         text += `  ${mealLabels[meal]}: ${menuChoices[day][meal] || '(sin elegir)'}\n`;
       });
       text += '\n';
@@ -1186,6 +1269,7 @@ function render(){
   renderFoodLists();
   renderDays();
   renderMedicalNote();
+  renderVegNote();
   renderFilterSummary();
   if(typeof renderMenuSummary === 'function') renderMenuSummary();
   if(typeof renderMenu === 'function') renderMenu();
@@ -1243,19 +1327,24 @@ if(calcBtn){
   });
 }
 
-// ---- Meal generator (foods at home) ----
+// ---- Meal generator (foods at home) — only combinations allowed by the régimen ----
 const homeState = {};
 const recipes = [
-  {need:['arroz','pollo'], name:'Arroz con pollo desmenuzado', desc:'Arroz blanco bien cocido con pollo hervido o al vapor, sin piel.', vegetarian:false},
-  {need:['arroz'], name:'Arroz blanco con caldo', desc:'Arroz bien cocido, acompañado de caldo colado y tibio.', vegetarian:true, requiresAny:['caldo']},
-  {need:['papa','zanahoria'], name:'Puré de papa y zanahoria', desc:'Ambas cocidas al vapor y hechas puré, sin mantequilla ni grasa.', vegetarian:true},
-  {need:['huevo','pan'], name:'Tostada con huevo cocido', desc:'Pan tostado sin mantequilla junto a huevo duro.', vegetarian:true},
-  {need:['avena'], name:'Avena suave con plátano', desc:'Avena cocida en agua, sin lácteos, con plátano maduro picado.', vegetarian:true},
-  {need:['platano'], name:'Plátano maduro', desc:'Ideal como colación entre comidas principales.', vegetarian:true},
-  {need:['manzana'], name:'Manzana rallada o al horno', desc:'Pelada, rallada o al horno, sin cáscara.', vegetarian:true},
-  {need:['caldo'], name:'Caldo colado tibio', desc:'Caldo de pollo o verduras, colado y sin grasa.', vegetarian:false},
-  {need:['yogur'], name:'Yogur natural sin azúcar', desc:'En porción pequeña, si se tolera bien.', vegetarian:true, lactoseFree:false},
-  {need:['pan'], name:'Pan tostado o galletas de agua', desc:'Sin mantequilla, en porciones pequeñas.', vegetarian:true},
+  {need:['arroz','pollo'], name:'Arroz blanco con pollo a la plancha', desc:'Arroz bien cocido con pollo o pavo sin cuero, a la plancha.', vegetarian:false},
+  {need:['fideos','clara'], name:'Fideos cabello con clara de huevo', desc:'Fideos finos bien cocidos con clara de huevo, sin grasa.', vegetarian:true},
+  {need:['semola'], name:'Sopa de sémola', desc:'Sémola cocida en agua o en consomé colado.', vegetarian:true},
+  {need:['papa'], name:'Puré de papas sin mantequilla', desc:'Papas cocidas y hechas puré, sin mantequilla ni leche.', vegetarian:true},
+  {need:['pan','quesillo'], name:'Pan tostado con quesillo', desc:'Pan molde blanco tostado con quesillo o queso fresco.', vegetarian:true, lactoseFree:false},
+  {need:['galletas','quesillo'], name:'Galletas de agua con quesillo', desc:'Tal como indica tu pauta para la once.', vegetarian:true, lactoseFree:false},
+  {need:['pescado','arroz'], name:'Pescado blanco al vapor con arroz', desc:'Congrio, reineta, merluza o tollo al vapor, sin grasa, con arroz blanco.', vegetarian:false},
+  {need:['posta','fideos'], name:'Posta a la plancha con fideos finos', desc:'Posta rosada o negra sin grasa, a la plancha.', vegetarian:false},
+  {need:['clara'], name:'Merengue simple', desc:'Clara de huevo batida con azúcar, horneada a baja temperatura.', vegetarian:true},
+  {need:['jalea'], name:'Jalea', desc:'Ideal como colación, tal como indica tu pauta.', vegetarian:true},
+  {need:['zanahoria'], name:'Zanahoria cocida', desc:'Cocida, como acompañamiento del almuerzo o la cena.', vegetarian:true, requiresMejora:true},
+  {need:['zapallo'], name:'Zapallo cocido o en sopa', desc:'Cocido, en trozos o hecho puré.', vegetarian:true, requiresMejora:true},
+  {need:['betarraga'], name:'Betarraga cocida', desc:'Cocida, como acompañamiento.', vegetarian:true, requiresMejora:true},
+  {need:['manzana'], name:'Manzana cocida o rallada', desc:'Sin cáscara, cocida o rallada.', vegetarian:true, requiresMejora:true},
+  {need:['platano'], name:'Plátano molido sin pepas', desc:'Bien maduro, molido y sin pepas.', vegetarian:true, requiresMejora:true}
 ];
 
 document.querySelectorAll('.home-item').forEach(item=>{
@@ -1280,8 +1369,9 @@ function renderMenu(){
   let matches = recipes.filter(r=>r.need.every(n=>homeState[n]));
   if(state.vegetariano) matches = matches.filter(r=>r.vegetarian !== false);
   if(state.lactosa) matches = matches.filter(r=>r.lactoseFree !== false);
+  if(!state.mejora) matches = matches.filter(r=>!r.requiresMejora);
   if(matches.length === 0){
-    box.innerHTML = '<p class="menu-empty">Con lo que marcaste aún no arma una combinación. Prueba sumar arroz, papa o caldo.</p>';
+    box.innerHTML = '<p class="menu-empty">Con lo que marcaste aún no arma una combinación. Prueba sumar arroz, papas o sémola.</p>';
     return;
   }
   box.innerHTML = matches.map(r=>`<div class="menu-card"><h4>✓ ${r.name}</h4><p>${r.desc}</p></div>`).join('');
